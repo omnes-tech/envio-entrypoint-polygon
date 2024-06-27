@@ -1,0 +1,69 @@
+type EntryPoint_AccountDeployed {
+  id: ID!
+  userOpHash: String!
+  sender: String!
+  factory: String!
+  paymaster: String!
+}
+
+type EntryPoint_BeforeExecution {
+  id: ID!
+}
+
+type EntryPoint_Deposited {
+  id: ID!
+  account: String!
+  totalDeposit: BigInt!
+}
+
+type EntryPoint_SignatureAggregatorChanged {
+  id: ID!
+  aggregator: String!
+}
+
+type EntryPoint_StakeLocked {
+  id: ID!
+  account: String!
+  totalStaked: BigInt!
+  unstakeDelaySec: BigInt!
+}
+
+type EntryPoint_StakeUnlocked {
+  id: ID!
+  account: String!
+  withdrawTime: BigInt!
+}
+
+type EntryPoint_StakeWithdrawn {
+  id: ID!
+  account: String!
+  withdrawAddress: String!
+  amount: BigInt!
+}
+
+type EntryPoint_UserOperationEvent {
+  id: ID!
+  userOpHash: String!
+  sender: String!
+  paymaster: String!
+  nonce: BigInt!
+  success: Boolean!
+  actualGasCost: BigInt!
+  actualGasUsed: BigInt!
+}
+
+type EntryPoint_UserOperationRevertReason {
+  id: ID!
+  userOpHash: String!
+  sender: String!
+  nonce: BigInt!
+  revertReason: String!
+}
+
+type EntryPoint_Withdrawn {
+  id: ID!
+  account: String!
+  withdrawAddress: String!
+  amount: BigInt!
+}
+

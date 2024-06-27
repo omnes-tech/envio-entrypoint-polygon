@@ -1,0 +1,20 @@
+name: Entrypoint-polygon
+networks:
+- id: 137
+  start_block: 0
+  contracts:
+  - name: EntryPoint
+    address:
+    - 0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789
+    handler: src/EventHandlers.ts
+    events:
+    - event: AccountDeployed(bytes32 indexed userOpHash, address indexed sender, address factory, address paymaster)
+    - event: BeforeExecution()
+    - event: Deposited(address indexed account, uint256 totalDeposit)
+    - event: SignatureAggregatorChanged(address indexed aggregator)
+    - event: StakeLocked(address indexed account, uint256 totalStaked, uint256 unstakeDelaySec)
+    - event: StakeUnlocked(address indexed account, uint256 withdrawTime)
+    - event: StakeWithdrawn(address indexed account, address withdrawAddress, uint256 amount)
+    - event: UserOperationEvent(bytes32 indexed userOpHash, address indexed sender, address indexed paymaster, uint256 nonce, bool success, uint256 actualGasCost, uint256 actualGasUsed)
+    - event: UserOperationRevertReason(bytes32 indexed userOpHash, address indexed sender, uint256 nonce, bytes revertReason)
+    - event: Withdrawn(address indexed account, address withdrawAddress, uint256 amount)
